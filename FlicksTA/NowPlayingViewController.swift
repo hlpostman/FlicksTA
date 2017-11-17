@@ -15,12 +15,15 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
     var refreshControl: UIRefreshControl!
     var movies: [[String: Any]] = []
     
+    @IBOutlet weak var activityViewIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Tableview setup
         tableView.dataSource = self
         tableView.delegate = self
+        
+        activityViewIndicator.startAnimating()
         
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(NowPlayingViewController.didPullToRefresh(_:)), for: .valueChanged)
@@ -55,6 +58,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
             }
         }
         task.resume()
+        activityViewIndicator.stopAnimating()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
