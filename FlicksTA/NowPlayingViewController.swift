@@ -64,8 +64,10 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         cell.titleLabel.text = title
         // Debug - title successfully accessed but not rendered in cell
         print(title)
+        // Debug - titleLabel.text successfully set but not rendered in cell
+        print(cell.titleLabel.text as! String)
         cell.overviewLabel.text = overview
-
+    
         return cell
     }
     
