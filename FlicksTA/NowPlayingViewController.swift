@@ -8,11 +8,26 @@
 
 import UIKit
 
-class NowPlayingViewController: UIViewController {
+class NowPlayingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    var movies: [[String: Any]] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Tableview setup
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        // Network request
+        let task = makeNetworkRequest()
+        task.resume()
+      
+    }
+
+    func makeNetworkRequest() -> URLSessionTask {
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
         // cachePolicy set to .reloardIgnoringLocalCacheData for testing
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -24,20 +39,35 @@ class NowPlayingViewController: UIViewController {
             } else if let data = data {
                 // try! should be a do-catch loop in refactoring for safety
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                // print("🌸", dataDictionary)
                 let movies = dataDictionary["results"] as! [[String: Any]]
-                print("Getting titles...")
-                for movie in movies {
-                    let title = movie["title"] as! String
-                    print(title)
-                }
+                self.movies = movies
+                self.tableView.reloadData()
             }
         }
-        task.resume()
-      
+        return task
     }
-
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("Number of movies is \(movies.count)")
+        return movies.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Debug
+        print("Called cellForRowAt")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
+        
+        let movie = movies[indexPath.row]
+        let title = movie["title"] as! String
+        let overview = movie["overview"] as! String
+        
+        cell.titleLabel.text = title
+        // Debug - title successfully accessed but not rendered in cell
+        print(title)
+        cell.overviewLabel.text = overview
+
+        return cell
+    }
     
     
     

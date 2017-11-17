@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BE11355E1FBEBBEA00F3F639 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE11355D1FBEBBEA00F3F639 /* NowPlayingViewController.swift */; };
+		BE1135601FBED08E00F3F639 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE11355F1FBED08E00F3F639 /* MovieCell.swift */; };
 		BE14517A1FBD823E00FC29C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1451791FBD823E00FC29C4 /* AppDelegate.swift */; };
 		BE14517F1FBD823E00FC29C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE14517D1FBD823E00FC29C4 /* Main.storyboard */; };
 		BE1451811FBD823E00FC29C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE1451801FBD823E00FC29C4 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		BE11355D1FBEBBEA00F3F639 /* NowPlayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
+		BE11355F1FBED08E00F3F639 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		BE1451761FBD823E00FC29C4 /* FlicksTA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlicksTA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE1451791FBD823E00FC29C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE14517E1FBD823E00FC29C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				BE11355D1FBEBBEA00F3F639 /* NowPlayingViewController.swift */,
 				BE1451791FBD823E00FC29C4 /* AppDelegate.swift */,
 				BE14517D1FBD823E00FC29C4 /* Main.storyboard */,
+				BE11355F1FBED08E00F3F639 /* MovieCell.swift */,
 				BE1451801FBD823E00FC29C4 /* Assets.xcassets */,
 				BE1451821FBD823E00FC29C4 /* LaunchScreen.storyboard */,
 				BE1451851FBD823E00FC29C4 /* Info.plist */,
@@ -261,6 +264,7 @@
 			files = (
 				BE11355E1FBEBBEA00F3F639 /* NowPlayingViewController.swift in Sources */,
 				BE14517A1FBD823E00FC29C4 /* AppDelegate.swift in Sources */,
+				BE1135601FBED08E00F3F639 /* MovieCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
