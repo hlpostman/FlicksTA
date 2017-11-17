@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class NowPlayingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
@@ -58,16 +59,27 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
         
         let movie = movies[indexPath.row]
+        // Labels
         let title = movie["title"] as! String
         let overview = movie["overview"] as! String
-        
         cell.titleLabel.text = title
         // Debug - title successfully accessed but not rendered in cell
         print(title)
         // Debug - titleLabel.text successfully set but not rendered in cell
         print(cell.titleLabel.text as! String)
         cell.overviewLabel.text = overview
-    
+        
+        // Image
+        let baseURL = "https://image.tmdb.org/t/p/w500"
+        if let posterPathString = movie["poster_path"] as? String {
+            let posterURL = URL(fileURLWithPath: baseURL + posterPathString)
+            // Debug - printing valid poster paths
+            print(baseURL + posterPathString)
+            cell.posterImageView.af_setImage(withURL: posterURL)
+        } else {
+            cell.posterImageView.image = nil
+        }
+
         return cell
     }
     
