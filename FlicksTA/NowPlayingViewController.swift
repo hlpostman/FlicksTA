@@ -22,6 +22,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         // Tableview setup
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.rowHeight = 300
         
         activityViewIndicator.startAnimating()
         
@@ -85,14 +86,14 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         // Image
         let baseURL = "https://image.tmdb.org/t/p/w500"
         if let posterPathString = movie["poster_path"] as? String {
-            let posterURL = URL(fileURLWithPath: baseURL + posterPathString)
+            if let posterURL = URL(string: baseURL + posterPathString) {
             // Debug - printing valid poster paths
             print(baseURL + posterPathString)
             cell.posterImageView.af_setImage(withURL: posterURL)
         } else {
             cell.posterImageView.image = nil
         }
-
+        }
         return cell
     }
     
