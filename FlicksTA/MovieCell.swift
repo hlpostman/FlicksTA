@@ -12,10 +12,13 @@ class MovieCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
+    @IBOutlet weak var overviewScrollView: UIScrollView!
     @IBOutlet weak var posterImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        overviewScrollView.contentSize = CGSize(width: 248, height: 106)
+        overviewScrollView.contentSize.height = 960
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -33,6 +33,11 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         fetchMovies()
       
     }
+//
+//    func setupScrollView(_ movieCell: UITableViewCell as! MovieCell) {
+//        movieCell.overviewScrollView.contentSize = CGSize(width: scrollView.frame.size.width, height: infoView.frame.origin.y + infoView.frame.size.height)
+//        movieCell.overviewScrollView.contentSize.height = 960
+//    }
 
     @objc func didPullToRefresh(_ refreshControl: UIRefreshControl) {
         fetchMovies()
@@ -71,17 +76,14 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         // Debug
         print("Called cellForRowAt")
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
-        
+//        setupScrollView(movieCell: cell)
         let movie = movies[indexPath.row]
         // Labels
         let title = movie["title"] as! String
         let overview = movie["overview"] as! String
         cell.titleLabel.text = title
-        // Debug - title successfully accessed but not rendered in cell
-        print(title)
-        // Debug - titleLabel.text successfully set but not rendered in cell
-        print(cell.titleLabel.text as! String)
         cell.overviewLabel.text = overview
+        cell.overviewLabel.sizeToFit()
         
         // Image
         let baseURL = "https://image.tmdb.org/t/p/w500"
