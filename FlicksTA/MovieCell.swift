@@ -18,7 +18,7 @@ class MovieCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         overviewScrollView.contentSize = CGSize(width: 248, height: 98)
-        overviewScrollView.contentSize.height = 150
+        overviewScrollView.contentSize.height = 180
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
