@@ -22,7 +22,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         // Tableview setup
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = 300
+        tableView.rowHeight = 150
         
         activityViewIndicator.startAnimating()
         
@@ -33,11 +33,6 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         fetchMovies()
       
     }
-//
-//    func setupScrollView(_ movieCell: UITableViewCell as! MovieCell) {
-//        movieCell.overviewScrollView.contentSize = CGSize(width: scrollView.frame.size.width, height: infoView.frame.origin.y + infoView.frame.size.height)
-//        movieCell.overviewScrollView.contentSize.height = 960
-//    }
 
     @objc func didPullToRefresh(_ refreshControl: UIRefreshControl) {
         fetchMovies()
@@ -76,7 +71,6 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         // Debug
         print("Called cellForRowAt")
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieCell
-//        setupScrollView(movieCell: cell)
         let movie = movies[indexPath.row]
         // Labels
         let title = movie["title"] as! String
