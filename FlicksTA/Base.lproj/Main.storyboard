@@ -76,7 +76,13 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="eg0-AF-2FY"/>
+                    <navigationItem key="navigationItem" id="eg0-AF-2FY">
+                        <barButtonItem key="rightBarButtonItem" title="Menu" id="ydy-79-nQL">
+                            <connections>
+                                <segue destination="bwI-7s-ri4" kind="show" id="Ya8-XM-u4m"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityViewIndicator" destination="QOV-qY-6fQ" id="NFa-ga-Azu"/>
                         <outlet property="tableView" destination="NtO-qd-tkS" id="hxi-88-jh5"/>
@@ -119,7 +125,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NowPlaying_MovieCollectionViewCell" id="fbU-YR-DFr" customClass="MovieCollectionViewCell" customModule="FlicksTA" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCollectionViewCell" id="fbU-YR-DFr" customClass="MovieCollectionViewCell" customModule="FlicksTA" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -140,7 +146,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TopRated_MovieCollectionViewCell" id="cHF-2x-Tct" customClass="MovieCollectionViewCell" customModule="FlicksTA" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCollectionViewCell" id="cHF-2x-Tct" customClass="MovieCollectionViewCell" customModule="FlicksTA" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -161,7 +167,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Family_MovieCollectionViewCell" id="PQ7-xg-jdP" customClass="MovieCollectionViewCell" customModule="FlicksTA" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCollectionViewCell" id="PQ7-xg-jdP" customClass="MovieCollectionViewCell" customModule="FlicksTA" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -182,6 +188,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="cwa-uz-G0F"/>
                     </view>
+                    <connections>
+                        <outlet property="familyCollectionView" destination="fX4-q1-7X0" id="BcT-sd-w1r"/>
+                        <outlet property="nowPlayingCollectionView" destination="N70-QA-39V" id="SY3-S3-Evz"/>
+                        <outlet property="topRatedCollectionView" destination="9Ux-DS-geT" id="oat-w0-c5u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nyb-N0-Ezj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
