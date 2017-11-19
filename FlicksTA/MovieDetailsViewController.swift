@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieDetailsViewController: UIViewController {
+class MovieDetailsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet weak var posterImageView: UIImageView!
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -25,8 +25,18 @@ class MovieDetailsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    /*
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // This will be .count of list of actors in sender's associated dictinary
+        return 20
+    }
     
-
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CastCollectionViewCell", for: indexPath) as! CastCollectionViewCell
+        // Debug
+        cell.backgroundColor = .green
+        return cell
+    }*/
     /*
     // MARK: - Navigation
 
@@ -38,7 +48,7 @@ class MovieDetailsViewController: UIViewController {
     */
 
 }
-
+/*
 extension MovieDetailsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // This will be .count of list of actors in sender's associated dictinary
@@ -47,8 +57,10 @@ extension MovieDetailsViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "com.codepath.hlp.castCollectionViewCell", for: indexPath)
+        // Debug
         cell.backgroundColor = .green
         return cell
     }
     
 }
+*/
