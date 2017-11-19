@@ -16,16 +16,28 @@ class MenuViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     @IBOutlet weak var familyCollectionView: UICollectionView!
     
+    @IBOutlet weak var nowPlayingFlowLayout: UICollectionViewFlowLayout!
+    
+    @IBOutlet weak var topRatedFlowLayout: UICollectionViewFlowLayout!
+    
+    @IBOutlet weak var familyFlowLayout: UICollectionViewFlowLayout!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // Re do this using collection outlet and loop instead of 3 lines of code for each need
+        // Data source
         nowPlayingCollectionView.dataSource = self
         topRatedCollectionView.dataSource = self
         familyCollectionView.dataSource = self
-        // Do any additional setup after loading the view.
+        
+        // Scroll direction
+        nowPlayingFlowLayout.scrollDirection = .horizontal
+        topRatedFlowLayout.scrollDirection = .horizontal
+        familyFlowLayout.scrollDirection = .horizontal
+        
     }
-
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // This will be .count of list of actors in sender's associated dictinary

@@ -190,8 +190,11 @@
                     </view>
                     <connections>
                         <outlet property="familyCollectionView" destination="fX4-q1-7X0" id="BcT-sd-w1r"/>
+                        <outlet property="familyFlowLayout" destination="Rly-Ys-170" id="bH6-1b-WZR"/>
                         <outlet property="nowPlayingCollectionView" destination="N70-QA-39V" id="SY3-S3-Evz"/>
+                        <outlet property="nowPlayingFlowLayout" destination="Q3z-WB-YMJ" id="PsS-yz-Vtg"/>
                         <outlet property="topRatedCollectionView" destination="9Ux-DS-geT" id="oat-w0-c5u"/>
+                        <outlet property="topRatedFlowLayout" destination="2OB-rS-pXx" id="i3b-wB-VSM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nyb-N0-Ezj" userLabel="First Responder" sceneMemberID="firstResponder"/>
