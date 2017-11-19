@@ -9,11 +9,16 @@
 import UIKit
 
 class MovieDetailsViewController: UIViewController {
-
+    @IBOutlet weak var posterImageView: UIImageView!
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var overviewLabel: UILabel!
+    @IBOutlet weak var castCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Cast collection view
+        castCollectionView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,4 +37,18 @@ class MovieDetailsViewController: UIViewController {
     }
     */
 
+}
+
+extension MovieDetailsViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // This will be .count of list of actors in sender's associated dictinary
+        return 20
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "com.codepath.hlp.castCollectionViewCell", for: indexPath)
+        cell.backgroundColor = .green
+        return cell
+    }
+    
 }
