@@ -11,11 +11,13 @@ import AlamofireImage
 
 class MovieDetailsViewController: UIViewController {
     var movie: [String: Any] = [:]
+    var cast: [[String: Any]] = [[:]]
     @IBOutlet weak var posterImageView: UIImageView!
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var castCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Title and Overview
@@ -34,9 +36,38 @@ class MovieDetailsViewController: UIViewController {
         
         // Cast collection view
         castCollectionView.dataSource = self
+        let movieId = movie["id"] as! Int
+        fetchCast(movieId)
         
     }
 
+    func fetchCast(_ movieId: Int) {
+        // Debug
+        print("Called fetchCast")
+        let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
+        let creditsPath = "https://api.themoviedb.org/3/movie/\(movieId)/credits?api_key=\(apiKey)"
+        let url = URL(string: creditsPath)!
+        let request = URLRequest(url: url)
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        print("about to set task")
+        let task = session.dataTask(with: request)  { (data, response, error) in
+            // This will run when the network request returns
+            if let error = error {
+                print("Error from MoviesDetailViewController fetchCredits network request with localized description \"\(error.localizedDescription)\"")
+            } else if let data = data {
+                print("Got data")
+                // try! should be a do-catch loop in refactoring for safety
+                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                let cast = dataDictionary["cast"] as! [[String: Any]]
+                self.cast = cast
+                print("Got cast")
+            }
+            
+        }
+        task.resume()
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
