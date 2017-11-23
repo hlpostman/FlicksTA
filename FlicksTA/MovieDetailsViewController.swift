@@ -107,6 +107,16 @@ extension MovieDetailsViewController: UICollectionViewDataSource, UICollectionVi
         if let castMember = cast?[indexPath.row] {
             let castMemberName = castMember["name"] as? String ?? "Error fetching name"
             cell.castMemberNameLabel.text = castMemberName
+            let baseURL = "https://image.tmdb.org/t/p/w500"
+            if let headShotPath = castMember["profile_path"] as? String {
+                if let headShotURL = URL(string: baseURL + headShotPath) {
+                    cell.castMemberPhotoImageView.af_setImage(withURL: headShotURL)
+                } else {
+                    cell.castMemberPhotoImageView.image = nil
+                }
+                
+            }
+
         }
 
         return cell
