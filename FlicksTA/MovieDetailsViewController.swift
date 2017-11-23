@@ -24,6 +24,14 @@ class MovieDetailsViewController: UIViewController {
         titleLabel.text = movieTitle
         overviewLabel.text = (movie["overview"] as! String)
         
+        // Poster Image
+        let baseURL = "https://image.tmdb.org/t/p/w500"
+        if let posterPath = movie["poster_path"] as? String {
+            if let posterURL = URL(string: baseURL + posterPath) {
+             posterImageView.af_setImage(withURL: posterURL)
+            }
+        }
+        
         // Cast collection view
         castCollectionView.dataSource = self
         
