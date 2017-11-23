@@ -11,7 +11,7 @@ import AlamofireImage
 
 class MovieDetailsViewController: UIViewController {
     var movie: [String: Any] = [:]
-    var cast: [[String: Any]] = [[:]]
+    var cast: [[String: Any]]?
     @IBOutlet weak var posterImageView: UIImageView!
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -36,8 +36,8 @@ class MovieDetailsViewController: UIViewController {
         
         // Cast collection view
         castCollectionView.dataSource = self
-        let movieId = movie["id"] as! Int
-        fetchCast(movieId)
+//        let movieId = movie["id"] as! Int
+//        fetchCast(movieId)
         
     }
 
@@ -92,9 +92,12 @@ extension MovieDetailsViewController: UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CastCollectionViewCell", for: indexPath)
-        // Debug
-        cell.backgroundColor = .green
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CastCollectionViewCell", for: indexPath) as! CastCollectionViewCell
+        if let castMember = cast?[indexPath.row] {
+            let castMemberName = castMember["name"] as! String
+            cell.castMemberNameLabel.text = castMemberName
+        }
+
         return cell
     }
     
