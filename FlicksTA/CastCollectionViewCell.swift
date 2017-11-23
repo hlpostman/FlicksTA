@@ -9,5 +9,8 @@
 import UIKit
 
 class CastCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var castMemberNameLabel: UILabel!
+    
+    @IBOutlet weak var castMemberPhotoImageView: UIImageView!
     
 }
