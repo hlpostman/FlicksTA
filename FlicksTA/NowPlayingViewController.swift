@@ -81,10 +81,10 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         
         // Image
         let baseURL = "https://image.tmdb.org/t/p/w500"
-        if let posterPathString = movie["poster_path"] as? String {
-            if let posterURL = URL(string: baseURL + posterPathString) {
+        if let posterPath = movie["poster_path"] as? String {
+            if let posterURL = URL(string: baseURL + posterPath) {
             // Debug - printing valid poster paths
-            print(baseURL + posterPathString)
+            print(baseURL + posterPath)
             cell.posterImageView.af_setImage(withURL: posterURL)
         } else {
             cell.posterImageView.image = nil
