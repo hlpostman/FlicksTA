@@ -12,6 +12,7 @@ import AlamofireImage
 class MovieDetailsViewController: UIViewController {
     var movie: [String: Any] = [:]
     var cast: [[String: Any]]?
+    var castSize: Int = Int()
     @IBOutlet weak var posterImageView: UIImageView!
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -36,8 +37,9 @@ class MovieDetailsViewController: UIViewController {
         
         // Cast collection view
         castCollectionView.dataSource = self
-//        let movieId = movie["id"] as! Int
-//        fetchCast(movieId)
+        let movieId = movie["id"] as! Int
+        print("\(movieTitle) - Movie ID is \(movieId)")
+        fetchCast(movieId)
         
     }
 
@@ -49,7 +51,7 @@ class MovieDetailsViewController: UIViewController {
         let url = URL(string: creditsPath)!
         let request = URLRequest(url: url)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        print("about to set task")
+        print("fetchCast() about to set task")
         let task = session.dataTask(with: request)  { (data, response, error) in
             // This will run when the network request returns
             if let error = error {
@@ -60,7 +62,9 @@ class MovieDetailsViewController: UIViewController {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 let cast = dataDictionary["cast"] as! [[String: Any]]
                 self.cast = cast
-                print("Got cast")
+                self.castSize = cast.count
+                print("castSize set to \(self.castSize)")
+                self.castCollectionView.reloadData()
             }
             
         }
@@ -68,33 +72,40 @@ class MovieDetailsViewController: UIViewController {
         
     }
     
+    func getCastWithPhotosOnly(_ cast: [[String: Any]]) -> [[String: Any]] {
+        // Debug
+        print("Called getCastWithPhotosOnly")
+        var castWithPhotos: [[String: Any]] = [[:]]
+        for castMember in cast {
+        if castMember["profile_path"] != nil {
+                castWithPhotos.append(castMember)
+            }
+        }
+        print(castWithPhotos.count)
+        return castWithPhotos
+
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
 extension MovieDetailsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // This will be .count of list of actors in sender's associated dictinary
-        return 20
+        // Debug
+        print("NumberOfItemsInSection sees cast.count as \(String(describing: cast?.count)) and castSize as \(castSize), and is returning castSize")
+        return castSize
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CastCollectionViewCell", for: indexPath) as! CastCollectionViewCell
+        cell.castMemberNameLabel.text = String(describing: indexPath.row)
         if let castMember = cast?[indexPath.row] {
-            let castMemberName = castMember["name"] as! String
+            let castMemberName = castMember["name"] as? String ?? "Error fetching name"
             cell.castMemberNameLabel.text = castMemberName
         }
 
