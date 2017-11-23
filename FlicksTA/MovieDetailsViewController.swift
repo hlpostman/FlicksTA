@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class MovieDetailsViewController: UIViewController {
+    var movie: [String: Any] = [:]
     @IBOutlet weak var posterImageView: UIImageView!
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -16,27 +18,22 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var castCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // Title and Overview
+        let movieTitle = (movie["title"] as! String)
+        self.title = movieTitle
+        titleLabel.text = movieTitle
+        overviewLabel.text = (movie["overview"] as! String)
+        
         // Cast collection view
         castCollectionView.dataSource = self
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    /*
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // This will be .count of list of actors in sender's associated dictinary
-        return 20
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CastCollectionViewCell", for: indexPath) as! CastCollectionViewCell
-        // Debug
-        cell.backgroundColor = .green
-        return cell
-    }*/
+
     /*
     // MARK: - Navigation
 
