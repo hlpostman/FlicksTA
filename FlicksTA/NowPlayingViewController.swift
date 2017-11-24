@@ -104,6 +104,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         let vc = segue.destination as! MovieDetailsViewController
         let cell = sender as! UITableViewCell
         let indexPath = tableView.indexPath(for: cell)
+        print("TableView sending cell index path is \(String(describing: indexPath))")
         let movie = movies[(indexPath?.row)!]
         vc.movie = movie
         

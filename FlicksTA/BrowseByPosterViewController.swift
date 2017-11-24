@@ -69,14 +69,14 @@ class BrowseByPosterViewController: UIViewController, UICollectionViewDataSource
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let vc = segue.destination as! MovieDetailsViewController
+        let cell = sender as! UICollectionViewCell
+        let indexPath = collectionView.indexPath(for: cell)
+        print("CollectionView sending cell index path is \(String(describing: indexPath))")
+        let movie = movies[(indexPath?.row)!]
+        vc.movie = movie
+        
     }
-    */
 
 }

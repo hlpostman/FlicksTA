@@ -128,6 +128,7 @@
                                         <size key="customSize" width="186" height="243"/>
                                         <connections>
                                             <outlet property="posterImageView" destination="5D5-79-Pcc" id="3bZ-K1-pVb"/>
+                                            <segue destination="Gfj-E8-fos" kind="show" id="Wdh-aL-EXC"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -403,4 +404,7 @@
             <point key="canvasLocation" x="-560" y="848.27586206896558"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Wdh-aL-EXC"/>
+    </inferredMetricsTieBreakers>
 </document>
