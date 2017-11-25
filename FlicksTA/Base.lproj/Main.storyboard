@@ -18,10 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NtO-qd-tkS">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NtO-qd-tkS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="237" id="TNk-Oy-WmK" customClass="MovieCell" customModule="FlicksTA" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="237"/>
@@ -74,6 +73,12 @@
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="NtO-qd-tkS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0Lg-W8-oLT"/>
+                            <constraint firstItem="NtO-qd-tkS" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0Ni-5W-0j9"/>
+                            <constraint firstItem="NtO-qd-tkS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="LKQ-Pv-qnw"/>
+                            <constraint firstAttribute="bottom" secondItem="NtO-qd-tkS" secondAttribute="bottom" id="tfN-Xp-i4G"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="eg0-AF-2FY">
@@ -406,7 +411,7 @@
     </scenes>
     <resources>
         <image name="Tab_bar_Grid_Icon" width="23" height="26"/>
-        <image name="Tab_bar_Table_Icon" width="36" height="26"/>
+        <image name="Tab_bar_Table_Icon" width="37" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Wdh-aL-EXC"/>
