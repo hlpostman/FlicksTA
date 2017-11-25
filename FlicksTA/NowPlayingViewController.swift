@@ -80,12 +80,13 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         cell.overviewLabel.sizeToFit()
         
         // Image
+        let placeholderImage = UIImage(named: "Poster ph 1x")
         let baseURL = "https://image.tmdb.org/t/p/w500"
         if let posterPath = movie["poster_path"] as? String {
             if let posterURL = URL(string: baseURL + posterPath) {
             // Debug - printing valid poster paths
             print(baseURL + posterPath)
-            cell.posterImageView.af_setImage(withURL: posterURL)
+                cell.posterImageView.af_setImage(withURL: posterURL, placeholderImage: placeholderImage)
         } else {
             cell.posterImageView.image = nil
         }
@@ -107,6 +108,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         print("TableView sending cell index path is \(String(describing: indexPath))")
         let movie = movies[(indexPath?.row)!]
         vc.movie = movie
+        vc.hidesBottomBarWhenPushed = true
         
     }
     

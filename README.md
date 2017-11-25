@@ -73,7 +73,7 @@ List an 3rd party libraries, icons, graphics, or other assets you used in your a
 
 **Flicks** is a movies app displaying box office and top rental DVDs using [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **10.5** hours spent in total
+Time spent: **11** hours spent in total
 
 ## User Stories
 
@@ -98,6 +98,8 @@ The following **additional** features are implemented (list anything else that y
 - [x] User can scroll through movie cast in order of appearance in movie detail view 
 - [x] Custom tab bar icons designed in Sketch3
 - [x] Customize tab bar behaviour (hides on push to detail view from both table and collection view layouts)
+- [x] User can see placeholder image for poster view in table view layout, collection view layout, and detail view
+- [x] Custom placeholder image for poster view designed in Sketch3 for all 3 sizes
 - [ ] User can access a menu that shows movies that are now playing, top rated, or family (G, PG, and PG13 rated)
 - [ ] User can change table view to show now playing, top rated, or family (G, PG, and PG13 rated) movies
 - [ ] User can search for movies by cast member 

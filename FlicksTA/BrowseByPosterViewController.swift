@@ -30,10 +30,15 @@ class BrowseByPosterViewController: UIViewController, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PosterCollectionViewCell", for: indexPath) as! PosterCollectionViewCell
         let movie = movies[indexPath.item]
+        
+        // Image
+        let placeholderImage = UIImage(named: "Poster ph 2x")
         if let posterPath = movie["poster_path"] as? String {
             let baseURL = "https://image.tmdb.org/t/p/w500"
             if let posterURL = URL(string: baseURL + posterPath) {
-                cell.posterImageView.af_setImage(withURL: posterURL)
+                cell.posterImageView.af_setImage(withURL: posterURL, placeholderImage: placeholderImage)
+            } else {
+                cell.posterImageView.image = nil
             }
         }
         return cell
@@ -76,6 +81,7 @@ class BrowseByPosterViewController: UIViewController, UICollectionViewDataSource
         print("CollectionView sending cell index path is \(String(describing: indexPath))")
         let movie = movies[(indexPath?.row)!]
         vc.movie = movie
+        vc.hidesBottomBarWhenPushed = true
         
     }
 

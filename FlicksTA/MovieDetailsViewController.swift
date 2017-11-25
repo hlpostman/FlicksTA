@@ -28,10 +28,13 @@ class MovieDetailsViewController: UIViewController {
         overviewLabel.text = (movie["overview"] as! String)
         
         // Poster Image
+        let placeholderImage = UIImage(named: "Poster ph x3")
         let baseURL = "https://image.tmdb.org/t/p/w500"
         if let posterPath = movie["poster_path"] as? String {
             if let posterURL = URL(string: baseURL + posterPath) {
-             posterImageView.af_setImage(withURL: posterURL)
+                posterImageView.af_setImage(withURL: posterURL, placeholderImage: placeholderImage)
+            } else {
+                posterImageView.image = nil
             }
         }
         
