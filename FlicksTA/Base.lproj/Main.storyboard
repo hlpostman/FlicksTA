@@ -52,7 +52,6 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="idS-Q3-cnW" firstAttribute="leading" secondItem="KPx-lo-c7Z" secondAttribute="leading" id="1pe-fg-Y9b"/>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="VEY-Hz-Lac"/>
                                                         <constraint firstItem="idS-Q3-cnW" firstAttribute="top" secondItem="KPx-lo-c7Z" secondAttribute="top" id="Wph-wB-BYF"/>
                                                         <constraint firstAttribute="trailing" secondItem="idS-Q3-cnW" secondAttribute="trailing" id="mQT-pT-5Gx"/>
                                                         <constraint firstAttribute="bottom" secondItem="idS-Q3-cnW" secondAttribute="bottom" id="wxT-GC-WHt"/>
