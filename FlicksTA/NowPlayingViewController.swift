@@ -22,7 +22,8 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         // Tableview setup
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = 150
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = tableView.rowHeight
         
         activityViewIndicator.startAnimating()
         
