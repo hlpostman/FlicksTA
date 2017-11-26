@@ -146,13 +146,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="186" height="243"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5D5-79-Pcc">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5D5-79-Pcc">
                                                     <rect key="frame" x="0.0" y="0.0" width="186" height="243"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="5D5-79-Pcc" firstAttribute="leading" secondItem="bKb-t7-Tgt" secondAttribute="leading" id="AW9-pi-1Lu"/>
+                                            <constraint firstAttribute="bottom" secondItem="5D5-79-Pcc" secondAttribute="bottom" id="R0V-sv-8Bw"/>
+                                            <constraint firstItem="5D5-79-Pcc" firstAttribute="top" secondItem="bKb-t7-Tgt" secondAttribute="top" id="fMI-WW-yQY"/>
+                                            <constraint firstAttribute="trailing" secondItem="5D5-79-Pcc" secondAttribute="trailing" id="yaz-Ef-sT6"/>
+                                        </constraints>
                                         <size key="customSize" width="186" height="243"/>
                                         <connections>
                                             <outlet property="posterImageView" destination="5D5-79-Pcc" id="3bZ-K1-pVb"/>
@@ -457,6 +462,6 @@
         <image name="Tab_bar_Table_Icon" width="37" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eSv-zd-aLf"/>
+        <segue reference="Wdh-aL-EXC"/>
     </inferredMetricsTieBreakers>
 </document>
