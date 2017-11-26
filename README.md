@@ -138,3 +138,65 @@ Describe any challenges encountered while building the app.
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+# Lab 3 - *Flicks*
+
+**Flicks** is a movies app displaying box office and top rental DVDs using [The Movie Database API](http://docs.themoviedb.apiary.io/#).
+
+Time spent: **5** hours spent in total
+
+## User Stories
+
+The following **required** user stories are complete:
+
+- The following screens use AutoLayout to adapt to various orientations and screen sizes
+   - [x] Movie feed view (+3pt)
+   - [x] Detail view (+2pt)
+
+The following **optional** user stories are implemented:
+
+- [ ] Dynamic Height Cells (+1)
+- [x] Collection View AutoLayout (+2)
+
+The following **additional** user stories are implemented (List anything else that you can get done to improve the app functionality!) (+1-3pts):
+
+- [x] UIScroll view auto layout 
+- [x] CollectionView auto layout for movie cast collection view inside details view
+
+Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
+
+1. Any great places to use the multiplier feature of auto layout
+2. Any UIScrollView auto layout insights
+
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='https://github.com/hlpostman/FlicksTA/blob/master/FlicksTA/FlicksTA_Lab3_with_background_colors.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
+## Notes
+
+The UIScrollView auto layout was very tricky.  I learned that scrollviews infer their dimensions from their content size, which, unlike labels, is not intrinsic.  The content of my scroll view is a UILabel, which takes in varying amounts of text depending on the length of the movie description.  
+
+I wanted this movie description to scroll vertically when the text exceeded the baseline of the posterImage, and to extend horizontally to the bounds of the superview before wrapping in both portrait and landscape mode.  
+
+Giving the overview label a fixed width and height satisfied the UIScrollView, and looked fine in portrait view.  On larger phones or in landscape view however, the width remained fixed, wasting the horizontal space and forcing users to scroll instead.  Removing the fixed width and height left the UIScrollView unsure about its content size and what I wanted it to do.  In the end, I was able to remove the height constraint, and set the width of overview label to equal the width of the title label just above the UIScrollView.    I was concerned that for movies with short titles, this would cause the overview to wrap prematurely.  However, this has not occurred and the feature is exhibiting the desired behaviour.
+
+## License
+
+    Copyright 2017 H.L. Postman
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
