@@ -13,6 +13,7 @@ class MovieDetailsViewController: UIViewController {
     var movie: [String: Any] = [:]
     var cast: [[String: Any]]?
     var castSize: Int = Int()
+    @IBOutlet weak var backdropImageView: UIImageView!
     @IBOutlet weak var posterImageView: UIImageView!
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -28,13 +29,22 @@ class MovieDetailsViewController: UIViewController {
         overviewLabel.text = (movie["overview"] as! String)
         
         // Poster Image
-        let placeholderImage = UIImage(named: "Poster ph x3")
+
         let baseURL = "https://image.tmdb.org/t/p/w500"
         if let posterPath = movie["poster_path"] as? String {
+            let placeholderImage = UIImage(named: "Poster ph x3")
             if let posterURL = URL(string: baseURL + posterPath) {
                 posterImageView.af_setImage(withURL: posterURL, placeholderImage: placeholderImage)
             } else {
                 posterImageView.image = nil
+            }
+        }
+        if let backdropPath = movie["backdrop_path"] as? String {
+            let placeholderImage = UIImage(named: "Poster ph x1")
+            if let backdropURL = URL(string: baseURL + backdropPath) {
+                backdropImageView.af_setImage(withURL: backdropURL, placeholderImage: placeholderImage)
+            } else {
+                backdropImageView.image = nil
             }
         }
         
