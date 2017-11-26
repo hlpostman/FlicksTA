@@ -32,7 +32,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yi4-gs-Wbe">
-                                                    <rect key="frame" x="113" y="8" width="245" height="26"/>
+                                                    <rect key="frame" x="113" y="8" width="71.5" height="26"/>
                                                     <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                     <nil key="textColor"/>
@@ -42,11 +42,8 @@
                                                     <rect key="frame" x="113" y="42" width="254" height="118.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idS-Q3-cnW">
-                                                            <rect key="frame" x="0.0" y="0.0" width="245" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="71.5" height="20.5"/>
                                                             <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="245" id="Gu9-hK-zFj"/>
-                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -71,8 +68,8 @@
                                                 <constraint firstAttribute="bottom" secondItem="5GB-zX-Ttu" secondAttribute="bottom" constant="8" id="0e3-JQ-uaB"/>
                                                 <constraint firstItem="KPx-lo-c7Z" firstAttribute="top" secondItem="yi4-gs-Wbe" secondAttribute="bottom" constant="8" id="7h5-Fj-CNO"/>
                                                 <constraint firstItem="yi4-gs-Wbe" firstAttribute="leading" secondItem="5GB-zX-Ttu" secondAttribute="trailing" constant="8" id="8kt-fX-hfl"/>
+                                                <constraint firstItem="idS-Q3-cnW" firstAttribute="width" secondItem="yi4-gs-Wbe" secondAttribute="width" id="AEj-d4-DRb"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yi4-gs-Wbe" secondAttribute="trailing" constant="8" id="CpV-47-Z2t"/>
-                                                <constraint firstItem="idS-Q3-cnW" firstAttribute="width" secondItem="yi4-gs-Wbe" secondAttribute="width" id="Eur-qO-lBb"/>
                                                 <constraint firstItem="5GB-zX-Ttu" firstAttribute="top" secondItem="fgM-q9-PY3" secondAttribute="top" constant="8" id="OTm-3V-i1Q"/>
                                                 <constraint firstAttribute="trailing" secondItem="KPx-lo-c7Z" secondAttribute="trailing" constant="8" id="Q1q-jt-9dh"/>
                                                 <constraint firstAttribute="bottom" secondItem="KPx-lo-c7Z" secondAttribute="bottom" constant="8" id="Rax-0L-wIM"/>
